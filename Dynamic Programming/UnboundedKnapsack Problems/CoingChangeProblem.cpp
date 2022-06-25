@@ -10,7 +10,7 @@ int coinChangeProblem(int arr[], int n,int sum){
 	for(int i=0; i<sum+1; i++){
 		dp[0][i] = 0; 
 	}
-	for(int j = 1; j<n+1; j++){
+	for(int j = 0; j<n+1; j++){
 		dp[j][0] = 1;
 	}
 
