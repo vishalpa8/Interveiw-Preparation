@@ -34,6 +34,24 @@ int lcswithmemoize(int x, int y, string s1, string s2){
 
 	return dp[x][y];
 }
+int lcsTopDownApproach(string s1,string s2, int x, int y){
+	int t[x+1][y+1];
+	memset(t,0,sizeof(t));
+
+	for(int i=1; i<x+1; i++){
+		for(int j=1; j<y+1; j++){
+			if(s1[i-1] == s2[j-1]){
+				t[i][j] = 1 + t[i-1][j-1]; 
+			}
+			else{
+				t[i][j] = max(t[i-1][j],t[i][j-1]);
+			}
+		}
+	}
+
+	return t[x][y];
+
+}
 
 
 int main()
@@ -43,6 +61,8 @@ int main()
 	
 	cout << lcswithoutmemoize(6,6,"vishal","pandey") << endl;
 	cout << lcswithmemoize(6,6,"vishal","pandey") << endl;
+	cout << lcsTopDownApproach("vishal","pandey",6,6) << endl;
+
 
 	return 0;
 
