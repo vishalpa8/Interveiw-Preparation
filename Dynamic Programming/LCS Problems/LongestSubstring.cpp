@@ -1,26 +1,25 @@
 #include<bits/stdc++.h>
-	using namespace std;
-	typedef unsigned long long ll; 
+using namespace std;
+typedef unsigned long long ll; 
 #define endl '\n'
 #define fast_io ios_base::sync_with_stdio(0); cin.tie(0)
 
-	int dp[1001][1001];
+int dp[1001][1001];
 
-	int longestSubstring(string s1,string s2, int x, int y){
-		int result = 0;
-		for(int i=1; i<x+1; i++){
-			for(int j=1; j<y+1; j++){
-				if(s1[i-1] == s2[j-1]){
-					dp[i][j] = 1 + dp[i-1][j-1]; 
-					result = max(dp[i][j],result);
-				}
-				else{
-					dp[i][j] = 0;
-				}
-			}
+int longestSubstring(string s1,string s2, int x, int y){
+	int result = 0;
+	for(int i=1; i<x+1; i++){
+	  for(int j=1; j<y+1; j++){
+	    	if(s1[i-1] == s2[j-1]){
+			dp[i][j] = 1 + dp[i-1][j-1]; 
+			result = max(dp[i][j],result);
 		}
-		return result;
-
+		else{
+			dp[i][j] = 0;
+		}
+	  }
+	}
+	return result;
 }
 
 
