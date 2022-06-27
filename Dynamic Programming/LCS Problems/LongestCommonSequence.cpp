@@ -57,7 +57,7 @@ int lcsTopDownApproach(string s1,string s2, int x, int y){
 int main()
 {
 	fast_io;
-	memset(dp,-1,sizeof(dp));
+	memset(dp,0,sizeof(dp));
 	
 	cout << lcswithoutmemoize(6,6,"vishal","pandey") << endl;
 	cout << lcswithmemoize(6,6,"vishal","pandey") << endl;
