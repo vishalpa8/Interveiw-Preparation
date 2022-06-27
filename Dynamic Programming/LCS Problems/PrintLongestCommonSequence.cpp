@@ -41,13 +41,6 @@ string printLcs(string s1, string s2, int n, int m){
 			}
 		}
 	}
-	for(int i=0; i<n+1; i++){
-		for(int j=0; j<m+1; j++){
-			cout << dp[i][j] << " ";
-		}
-		cout << endl;
-	}
-	return s;
 }
 
 
