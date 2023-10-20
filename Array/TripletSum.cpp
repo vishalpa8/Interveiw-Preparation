@@ -11,12 +11,12 @@ bool find3Numbers(int A[], int n, int X)
 		for(int j=i+1; j<n; j++){
 			int target = X - A[i] - A[j];
 				if(s.find(target) != s.end()){
-					return 1;
+					return true;
 				}
 		}
 		s.insert(A[i]);
 	}
-	return 0;
+	return false;
 }
 
 
