@@ -3,28 +3,48 @@ using namespace std;
 typedef unsigned long long ll; 
 #define endl '\n'
 #define fast_io ios_base::sync_with_stdio(0); cin.tie(0)
-bool find3Numbers(int A[], int n, int X)
-{
-	set<int> s;
-       
-	for(int i=0; i<n; i++){
-		for(int j=i+1; j<n; j++){
-			int target = X - A[i] - A[j];
-				if(s.find(target) != s.end()){
-					return true;
+vector<vector<int>> findTripletNumbers(vector<int>&v, int target){
+		int n = v.size();
+		vector<vector<int>>ans;
+		sort(v.begin(),v.end());
+
+		for(int i=0; i<n; i++){
+			int val = target - v[i];
+			int j = i+1, k = n-1;
+			while(j < k){
+				int sum = v[j] + v[k];
+				if(sum == val){
+					ans.push_back({v[i],v[j],v[k]});
+					j++;
+					k--;
 				}
+				else if(sum > val){
+					k--;
+				}
+				else{
+					j++;
+				}
+			}
 		}
-		s.insert(A[i]);
-	}
-	return false;
+
+		return ans;
+
 }
 
 
 int main(){
-	fast_io;
-	int A[] = {1,2,3,-2,5};
+	// fast_io;
+	vector<int> v{1,2,4,6,3,5,7,9,8,15};
+	int target = 18;
 
-	cout << find3Numbers(A,5,6) << endl;
+	auto ans = findTripletNumbers(v,target);
+
+	for(auto a : ans){
+		for(auto p : a){
+			cout << p << " ";
+		}
+		cout << "\n";
+	}
 
 
 	return 0;
