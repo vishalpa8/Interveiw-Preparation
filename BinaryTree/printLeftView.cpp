@@ -45,7 +45,7 @@ void printLeftView(node* root, int d, vector<int> &v){
     if(root == NULL){
         return;
     }
-    if(d == v.size()){
+    if(d == (int)v.size()){
         v.push_back(root->data);
     }
     printLeftView(root->left,d+1,v);
